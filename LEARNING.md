@@ -133,6 +133,6 @@ lesson contributions are recorded.
   its isolated database before stopping the process. The AI restarted port
   8001 with the normal local database, and the learner's retry showed the
   expected member denial.
-- Evidence links / next step: [APP-003 issue #5](https://github.com/GerardA8/Gerards-app-studio/issues/5),
-  [PR #6](https://github.com/GerardA8/Gerards-app-studio/pull/6); verify both
-  CI jobs on the latest PR head before merging.
+- Evidence / completion: [APP-003 issue #5](https://github.com/GerardA8/Gerards-app-studio/issues/5)
+  is closed by [merged PR #6](https://github.com/GerardA8/Gerards-app-studio/pull/6).
+  Its `check` and `windows` jobs passed on head `e7a17f1`.
