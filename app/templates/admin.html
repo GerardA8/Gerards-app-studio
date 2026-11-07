@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Admin area · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="panel" aria-labelledby="admin-title">
+  <p class="eyebrow">Admin area</p>
+  <h1 id="admin-title">Administration</h1>
+  <p>Admin access is enabled for {{ user.username }}.</p>
+  <p>Use the trusted local command line to change account roles.</p>
+</section>
+{% endblock %}
