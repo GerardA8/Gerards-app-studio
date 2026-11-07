@@ -8,9 +8,12 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 - **Current feature:** APP-001.
 - **Status:** Learner chose to keep the local version. The cumulative check has
-  passed in the elevated terminal after the initial unelevated symlink failure;
-  PR and CI verification remain pending.
-- **Next step:** Open the PR and verify both CI jobs before deciding to merge.
+  passed in the elevated terminal after the initial unelevated symlink failure.
+  [PR #2](https://github.com/GerardA8/Gerards-app-studio/pull/2) is open; its
+  initial `check` and `windows` jobs passed. Latest CI and merge/issue closure
+  remain to be verified.
+- **Next step:** Verify latest CI, ask for the merge decision, then verify issue
+  closure and update local main.
 - **Implementation marker:** `studio.json` declares `implemented_through: 1`.
 
 This repository owns application code. Server/proxy changes and production
@@ -84,7 +87,7 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | `app/brand.json`, `app/templates/home.html`, `app/static/logo.svg`, `studio.json`; [#1](https://github.com/GerardA8/Gerards-app-studio/issues/1); branch `feature/app-001-branded-homepage` | Initial unelevated cumulative run: foundation pytest 95 passed, 2 skipped, 1 failed with Windows WinError 1314 creating a symlink; APP-001 contract pytest 2 passed; Chromium 2 passed. After marker 1, learner reports normal full check: foundation pytest 96 passed, 2 skipped, 2 deselected; APP-001 contract pytest 2 passed; Chromium 2 passed. AI browser review at 390px found no horizontal overflow. Learner says the contract can catch stale “Your Project” branding, but not phone readability. At phone width, learner reports the headline wraps to “Plan classes with” / “work in mind.” Initial neutral-page observation: heading “A small idea. A real application.” | Learner chose keep locally; issue open, PR and CI pending |
+| APP-001 | `app/brand.json`, `app/templates/home.html`, `app/static/logo.svg`, `studio.json`; [issue #1](https://github.com/GerardA8/Gerards-app-studio/issues/1); branch `feature/app-001-branded-homepage`; [PR #2](https://github.com/GerardA8/Gerards-app-studio/pull/2) | Initial unelevated cumulative run: foundation pytest 95 passed, 2 skipped, 1 failed with Windows WinError 1314 creating a symlink; APP-001 contract pytest 2 passed; Chromium 2 passed. After marker 1, learner reports normal full check: foundation pytest 96 passed, 2 skipped, 2 deselected; APP-001 contract pytest 2 passed; Chromium 2 passed. Initial PR CI: `check` and `windows` succeeded; verify the latest runs after this evidence update. AI browser review at 390px found no horizontal overflow. Learner says the contract can catch stale “Your Project” branding, but not phone readability. At phone width, learner reports the headline wraps to “Plan classes with” / “work in mind.” Initial neutral-page observation: heading “A small idea. A real application.” | Learner chose keep locally; initial CI passed; latest CI, merge and issue closure pending |
 | APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
