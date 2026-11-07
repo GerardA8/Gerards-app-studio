@@ -84,15 +84,55 @@ lesson contributions are recorded.
   generated throwaway local account for this review, not as learner evidence.
   The learner reports ChatGPT helped phrase their prediction, check
   interpretation, browser observation and keep decision.
-- Evidence links / next step: [APP-002 issue #3](https://github.com/GerardA8/Gerards-app-studio/issues/3);
-  review this summary before committing and opening the PR.
+- Evidence links / next step: [APP-002 issue #3](https://github.com/GerardA8/Gerards-app-studio/issues/3),
+  [merged PR #4](https://github.com/GerardA8/Gerards-app-studio/pull/4); APP-002
+  is complete. Agree APP-003 scope next.
 
 ## APP-003
 
-- Prediction: Pending.
-- Check interpretation: Pending.
-- Browser observation: Pending.
-- Keep decision: Pending.
-- Review: Pending.
-- Help/gaps: Pending.
-- Evidence links / next step: Keep APP-002 before agreeing this lesson.
+- Prediction: The learner expects a member's direct admin API request to return
+  403 without admin data.
+- Check interpretation: The learner says the check could catch a bug where the
+  app hides the admin link but still lets a signed-in member open `/admin` or
+  read `/api/admin` directly. They would test an admin account separately to
+  confirm access to both.
+- Browser observation: While signed in as a member, the learner opened `/admin`
+  directly and saw “Admin access required” with a “Back to your member space”
+  link. After promoting the local test account with the trusted CLI, the page
+  showed that admin access was enabled. After changing it back to member, the
+  page again showed “Admin access required,” and the API response said “This
+  page requires an admin account.”
+- Keep decision: The learner would keep the role checks because they could open
+  the Administration page as an admin and saw the expected denial as a member
+  on both `/admin` and `/api/admin`.
+- Review: The learner approved this APP-003 summary and added that ChatGPT
+  helped phrase their prediction, interpretation, observations and keep
+  decision.
+- Help/gaps: The learner approved a small server-enforced boundary: anonymous
+  visitors are redirected to login on `/admin` and receive 401 from
+  `GET /api/admin`; members receive 403 on both; admins receive 200 on both.
+  Role changes use the trusted local CLI, signup cannot choose admin, and
+  current permissions apply to existing sessions. Issue #5 and
+  `feature/app-003-server-enforced-roles` were created before saving this
+  decision. AI implemented the protected routes and denied-page template.
+  The learner reports ChatGPT helped phrase their prediction, check
+  interpretation, browser observations and keep decision.
+  Contracts passed (18) and Chromium journeys passed (2). The full check's
+  foundation had 95 passed, 2 skipped, 2 deselected and one Windows WinError
+  1314 symlink-privilege failure. AI browser review found no horizontal
+  overflow at 1280px or 390px; this is not the learner's observation.
+  The learner reports that the elevated APP-003 check passed with foundation
+  96 passed, 2 skipped, 2 deselected; 18 contracts; 2 Chromium tests; and no
+  failures. The implementation marker was advanced to 3. The AI's normal
+  post-marker check again passed formatting, Pylint, contracts and Chromium,
+  but failed the same foundation symlink test without elevated privileges;
+  the learner then reports that the elevated normal post-marker check passed
+  with foundation 96 passed, 2 skipped, 2 deselected; 18 contracts; 2 Chromium
+  tests; and zero failures.
+  The AI's temporary review server initially returned 500 after the AI removed
+  its isolated database before stopping the process. The AI restarted port
+  8001 with the normal local database, and the learner's retry showed the
+  expected member denial.
+- Evidence links / next step: [APP-003 issue #5](https://github.com/GerardA8/Gerards-app-studio/issues/5),
+  [PR #6](https://github.com/GerardA8/Gerards-app-studio/pull/6); verify both
+  CI jobs on the latest PR head before merging.
