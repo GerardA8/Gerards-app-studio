@@ -6,15 +6,17 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 ## Current stage
 
-- **Current feature:** APP-001.
-- **Status:** Learner chose to keep the local version. The cumulative check has
-  passed in the elevated terminal after the initial unelevated symlink failure.
-  [PR #2](https://github.com/GerardA8/Gerards-app-studio/pull/2) is open; its
-  initial `check` and `windows` jobs passed. Latest CI and merge/issue closure
-  remain to be verified.
-- **Next step:** Verify latest CI, ask for the merge decision, then verify issue
-  closure and update local main.
-- **Implementation marker:** `studio.json` declares `implemented_through: 1`.
+- **Current feature:** APP-002 (scope agreed).
+- **Status:** APP-001 was kept and merged. Issue #1 is closed; PR #2 and the
+  post-merge `check` and `windows` jobs are verified. APP-002 routes and forms
+  are implemented; contracts and Chromium journeys pass. The learner's check
+  interpretation, browser observation and keep decision are recorded; the
+  learning summary is reviewed and approved. The marker is 2. The learner reports the
+  post-marker elevated full check passed; the standard non-elevated run here
+  still fails only at Windows symlink creation.
+- **Next step:** Commit, push and open the PR linked to issue #3; verify both CI
+  jobs before merging.
+- **Implementation marker:** `studio.json` declares `implemented_through: 2`.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -47,9 +49,10 @@ helpers; keep data local. New accounts cannot choose their role.
 
 | Decision | Agreement |
 |---|---|
-| Expected public/private behavior and account flow | Pending |
-| Valid and rejected cases to demonstrate | Pending |
-| Own issue / branch / PR | Pending |
+| Expected public/private behavior and account flow | Member signup, login, private dashboard and logout using local SQLite and prepared security helpers; browser forms and REST API follow the same login rules. |
+| Request behavior before / after login | Before login, the browser redirects to login and REST returns 401 without dashboard data; after login, the browser shows the member's private dashboard and REST returns 200 with that member's data. |
+| Valid and rejected cases to demonstrate | Prepared contracts cover signup/login, duplicate and invalid signup, wrong credentials, CSRF rejection, unauthenticated access, and logout revocation. |
+| Own issue / branch / PR | [Issue #3](https://github.com/GerardA8/Gerards-app-studio/issues/3); `feature/app-002-member-accounts`; PR pending. |
 
 **Keep when:** the agreed forms/API work; duplicate/invalid signup and wrong
 credentials are rejected; passwords are hashed; authentication uses validated,
@@ -87,8 +90,8 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | `app/brand.json`, `app/templates/home.html`, `app/static/logo.svg`, `studio.json`; [issue #1](https://github.com/GerardA8/Gerards-app-studio/issues/1); branch `feature/app-001-branded-homepage`; [PR #2](https://github.com/GerardA8/Gerards-app-studio/pull/2) | Initial unelevated cumulative run: foundation pytest 95 passed, 2 skipped, 1 failed with Windows WinError 1314 creating a symlink; APP-001 contract pytest 2 passed; Chromium 2 passed. After marker 1, learner reports normal full check: foundation pytest 96 passed, 2 skipped, 2 deselected; APP-001 contract pytest 2 passed; Chromium 2 passed. Initial PR CI: `check` and `windows` succeeded; verify the latest runs after this evidence update. AI browser review at 390px found no horizontal overflow. Learner says the contract can catch stale “Your Project” branding, but not phone readability. At phone width, learner reports the headline wraps to “Plan classes with” / “work in mind.” Initial neutral-page observation: heading “A small idea. A real application.” | Learner chose keep locally; initial CI passed; latest CI, merge and issue closure pending |
-| APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
+| APP-001 | `app/brand.json`, `app/templates/home.html`, `app/static/logo.svg`, `studio.json`; [issue #1](https://github.com/GerardA8/Gerards-app-studio/issues/1); branch `feature/app-001-branded-homepage`; [PR #2](https://github.com/GerardA8/Gerards-app-studio/pull/2) | Initial unelevated cumulative run: foundation pytest 95 passed, 2 skipped, 1 failed with Windows WinError 1314 creating a symlink; APP-001 contract pytest 2 passed; Chromium 2 passed. After marker 1, learner reports normal full check: foundation pytest 96 passed, 2 skipped, 2 deselected; APP-001 contract pytest 2 passed; Chromium 2 passed. PR `check`/`windows` passed on the updated head; post-merge main run [#4](https://github.com/GerardA8/Gerards-app-studio/actions/runs/42339628835) also passed both jobs. AI browser review at 390px found no horizontal overflow. Learner says the contract can catch stale “Your Project” branding, but not phone readability. At phone width, learner reports the headline wraps to “Plan classes with” / “work in mind.” Initial neutral-page observation: heading “A small idea. A real application.” | Learner chose keep; issue #1 closed; PR #2 merged; CI verified |
+| APP-002 | `app/features/accounts.py`, `app/templates/signup.html`, `app/templates/login.html`, `app/templates/dashboard.html`; [issue #3](https://github.com/GerardA8/Gerards-app-studio/issues/3); branch `feature/app-002-member-accounts` | Learner reports the post-marker elevated `python3 studio.py check` passed: foundation 96 passed, 2 skipped, 2 deselected; contracts 14 passed; Chromium 2 passed. AI's standard non-elevated run passed Black/Pylint, contracts 14 and Chromium 2, but foundation had 95 passed, 2 skipped, 2 deselected and 1 WinError 1314 symlink failure. Focused account/security tests: 62 passed, 1 skipped. AI browser review found no horizontal overflow at 390px or desktop width. The learner says the check could catch `/api/me` disclosing account details before login or including a private value such as a password hash after login. After logout, the learner clicked Member space and says ShiftCheck asked them to log in before they could see the dashboard; they would keep the behavior because it protects the dashboard after logout. | Learner chose keep; PR pending |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
 The instructor's reference branches show possible implementations. They do not

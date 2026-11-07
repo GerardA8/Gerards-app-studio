@@ -46,21 +46,46 @@ lesson contributions are recorded.
   foundation tests passed, 2 skipped and 2 deselected, with 2 APP-001 contract
   tests and 2 Chromium journeys passed. AI browser review at 390px found no
   horizontal overflow.
-  Record review remains pending. The learner chose to keep the local version;
-  the initial foundation failure remains unresolved.
-- Evidence links / next step: [APP-001 issue #1](https://github.com/GerardA8/Gerards-app-studio/issues/1);
-  review the corrected attribution before publication and resolve the Windows
-  symlink permission failure before claiming full checks passed.
+  The learner reviewed and approved the record, including the clarification
+  about the name's origin. The initial unelevated symlink failure is documented;
+  the learner reports both later elevated checks passed.
+- Evidence links / next step: [APP-001 issue #1](https://github.com/GerardA8/Gerards-app-studio/issues/1),
+  [merged PR #2](https://github.com/GerardA8/Gerards-app-studio/pull/2);
+  APP-001 is complete. Agree APP-002 scope next.
 
 ## APP-002
 
-- Prediction: Pending.
-- Check interpretation: Pending.
-- Browser observation: Pending.
-- Keep decision: Pending.
-- Review: Pending.
-- Help/gaps: Pending.
-- Evidence links / next step: Keep APP-001 before agreeing this lesson.
+- Prediction: The learner expects an unauthenticated browser dashboard request to
+  redirect to login and REST to return 401 without data; after valid login, the
+  browser should show the member's dashboard and REST should return 200 with
+  that member's data.
+- Check interpretation: The learner says the check could catch `/api/me`
+  disclosing account details before login or including a private value such as a
+  password hash after login.
+- Browser observation: After logging out, the learner clicked Member space again
+  and says ShiftCheck asked them to log in before they could see the dashboard.
+- Keep decision: The learner would keep the behavior because, as they put it,
+  it protects the dashboard after logout.
+- Review: The learner reviewed and approved the APP-002 summary and asked to
+  include that ChatGPT helped phrase their contributions.
+- Help/gaps: The learner approved member signup, login, a private dashboard and
+  logout using local SQLite and the prepared security helpers. They said browser
+  forms and REST should “enforce the same login rules” and deferred member/admin
+  permissions to APP-003. Issue #3 and `feature/app-002-member-accounts` were
+  ready before implementation. AI connected the HTML forms and REST routes to
+  the prepared security helpers and added signup, login and private dashboard
+  templates; no role/admin behavior was added. Focused account/security tests
+  passed 62 with 1 skipped; cumulative contracts passed 14 and Chromium
+  journeys passed 2. AI's non-elevated full run had 95 passed, 2 skipped, 2
+  deselected and one symlink-privilege failure (WinError 1314); the learner
+  reports the post-marker elevated full check passed with foundation 96 passed,
+  2 skipped, 2 deselected, 14 contracts passed and 2 Chromium journeys passed.
+  AI browser review found no horizontal overflow at desktop and 390px; AI used a
+  generated throwaway local account for this review, not as learner evidence.
+  The learner reports ChatGPT helped phrase their prediction, check
+  interpretation, browser observation and keep decision.
+- Evidence links / next step: [APP-002 issue #3](https://github.com/GerardA8/Gerards-app-studio/issues/3);
+  review this summary before committing and opening the PR.
 
 ## APP-003
 
