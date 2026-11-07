@@ -7,9 +7,11 @@ actual evidence; pending is a valid state. Keep explanations/help in
 ## Current stage
 
 - **Current feature:** APP-001.
-- **Status:** Neutral foundation; learner scope and decisions pending.
-- **Next step:** Confirm the local clone and SSH origin, run setup and try the page.
-- **Implementation marker:** `studio.json` starts at `implemented_through: 0`.
+- **Status:** Learner chose to keep the local version. The cumulative check has
+  passed in the elevated terminal after the initial unelevated symlink failure;
+  PR and CI verification remain pending.
+- **Next step:** Open the PR and verify both CI jobs before deciding to merge.
+- **Implementation marker:** `studio.json` declares `implemented_through: 1`.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -23,10 +25,11 @@ Keep account actions honest about their unfinished state.
 
 | Decision | Agreement |
 |---|---|
-| Visitor and concrete use situation | Pending |
-| Reused IS117 brand, or name / promise / primary archetype | Pending |
-| One visible choice and visitor benefit | Pending |
-| Own issue / branch / PR | Pending |
+| Visitor and concrete use situation | College student working part-time; before registering for classes, checks which class times fit around work shifts. |
+| Reused IS117 brand, or name / promise / primary archetype | New brand: ShiftCheck. Promise: “Check how class times fit around your work shifts before you register.” Primary archetype: Guide. |
+| One visible choice and visitor benefit | Visible name: “ShiftCheck.” The learner says it reminds students to check work hours before signing up and may help them avoid changing their schedule later. |
+| Voice / design direction | Helpful advisor; short and friendly copy; warm cream background, white sections and deep-green buttons. |
+| Own issue / branch / PR | [#1](https://github.com/GerardA8/Gerards-app-studio/issues/1); `feature/app-001-branded-homepage`; PR pending. |
 
 **Keep when:** the agreed identity is visible and usable at desktop/narrow widths;
 full foundation + APP-001 checks pass; AI review and the learner's actual check
@@ -81,7 +84,7 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | Pending | Not run; learner contributions pending | Pending |
+| APP-001 | `app/brand.json`, `app/templates/home.html`, `app/static/logo.svg`, `studio.json`; [#1](https://github.com/GerardA8/Gerards-app-studio/issues/1); branch `feature/app-001-branded-homepage` | Initial unelevated cumulative run: foundation pytest 95 passed, 2 skipped, 1 failed with Windows WinError 1314 creating a symlink; APP-001 contract pytest 2 passed; Chromium 2 passed. After marker 1, learner reports normal full check: foundation pytest 96 passed, 2 skipped, 2 deselected; APP-001 contract pytest 2 passed; Chromium 2 passed. AI browser review at 390px found no horizontal overflow. Learner says the contract can catch stale “Your Project” branding, but not phone readability. At phone width, learner reports the headline wraps to “Plan classes with” / “work in mind.” Initial neutral-page observation: heading “A small idea. A real application.” | Learner chose keep locally; issue open, PR and CI pending |
 | APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
