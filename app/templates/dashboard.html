@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Your member space · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="panel" aria-labelledby="dashboard-title">
+  <p class="eyebrow">Your private space</p>
+  <h1 id="dashboard-title">Your member space</h1>
+  <p>Welcome, {{ user.username }}.</p>
+  <p>This starter keeps your member area private while the next features take shape.</p>
+  <form method="post" action="/logout">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <button class="button" type="submit">Log out</button>
+  </form>
+</section>
+{% endblock %}
